@@ -8,3 +8,11 @@ def home_view(request):
     # django templates
     HTML_STRING = render_to_string('home-view.html', context=None)
     return HttpResponse(HTML_STRING)
+
+
+def index_view(request):
+    # this is the view users see when on the siteand are logged in
+
+    # django templates
+    HTML_STRING = render_to_string('index.html', context=None)
+    return HttpResponse(HTML_STRING)
