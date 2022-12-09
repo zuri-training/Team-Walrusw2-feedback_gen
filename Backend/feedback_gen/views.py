@@ -1,10 +1,10 @@
 from django.http import HttpResponse
-
-html_string = """
-<h1>This is the view users see when on the site but don't have an account</h1>
-"""
+from django.template.loader import render_to_string
 
 
 def home_view(request):
     # this is the view users see when on the site but don't have an account
-    return HttpResponse(html_string)
+
+    # django templates
+    HTML_STRING = render_to_string('home-view.html', context=None)
+    return HttpResponse(HTML_STRING)
