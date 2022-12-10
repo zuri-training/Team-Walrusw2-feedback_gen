@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,7 +13,7 @@
   <body>
     <header>
         <div class="container">
-        <img src="./Frontend/Walrusw2-img/TwalrusW2logo.svg" alt="TwalrusW2logo"/>
+        <img src="{% static 'Walrusw2-img/TwalrusW2logo.svg' %}" alt="TwalrusW2logo"/>
     </div>
     </header>
     <section>
@@ -49,17 +51,17 @@
 
             <p class="or-social">Or login with</p>
             <div class="socials">
-                  <a href="/"><img src="Walrusw2-img/Google.svg" alt="Google" /></a>
-                  <a href="/"><img src="Walrusw2-img/Facebook.svg" alt="Facebook" /></a>
-                  <a href="/"><img src="Walrusw2-img/Apple.svg" alt="Apple" /></a>
-                  <a href="/"><img src="Walrusw2-img/Windows.svg" alt="Windows" /></a>
+              <a><img src="{% static 'Walrusw2-img/Google.svg' %}" alt="Google" /></a>
+              <a><img src="{% static 'Walrusw2-img/Facebook.svg' %}" alt="Facebook" /></a>
+              <a><img src="{% static 'Walrusw2-img/Apple.svg' %}" alt="Apple" /></a>
+              <a><img src="{% static 'Walrusw2-img/Windows.svg' %}" alt="Windows" /></a>
               </ul>
             </div>
             <span>Dont have an account? <a href="/signup/">Sign Up</a></span>
           </div>
 
         <div class="content">
-          <img src="Walrusw2-img/Login2.svg" alt="image" />
+          <img src="{% static 'Walrusw2-img/Login2.svg' %}" alt="image" />
         </div>
       </div>
 </div>
