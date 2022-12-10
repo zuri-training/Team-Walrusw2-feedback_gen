@@ -14,7 +14,7 @@ def login_view(request):
             context = {"error": "Invalid username or password."}
             return render(request, 'accounts/login.html', context)
         login(request, user)
-        return redirect('/index_view')
+        return redirect('/dashboard_view')
     return render(request, 'accounts/login.html', {})
 
 

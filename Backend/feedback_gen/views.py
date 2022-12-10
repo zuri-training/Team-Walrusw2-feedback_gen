@@ -12,9 +12,9 @@ def home_view(request):
 
 
 @login_required
-def index_view(request):
+def dashboard_view(request):
     # this is the view users see when on the siteand are logged in
 
     # django templates
-    HTML_STRING = render_to_string('index.html', context=None)
+    HTML_STRING = render_to_string('dashboard.html', context=None)
     return HttpResponse(HTML_STRING)

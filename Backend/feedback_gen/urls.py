@@ -23,12 +23,12 @@ from accounts.views import (
 )
 from .views import (
     home_view,
-    index_view,
+    dashboard_view,
 )
 
 urlpatterns = [
     path('', home_view),  # home view
-    path('index_view/', index_view),  # index view
+    path('dashboard_view/', dashboard_view),  # index view
 
     path('admin/', admin.site.urls),
 
