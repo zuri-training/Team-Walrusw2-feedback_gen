@@ -17,11 +17,11 @@
 }
 
 .content,
-.loginform {
+.signupform {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 10px;
   width: calc(50% - 15px);
 }
 .content {
@@ -32,7 +32,7 @@
 .content img {
   max-width: 100%;
 }
-.loginform h1 {
+.signupform h1 {
   margin-top: 40px;
   font-family: "Apercu Pro";
   font-style: normal;
@@ -44,19 +44,19 @@
   text-align: center;
   color: #000000;
 }
-.loginform form {
+.signupform form {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
-.loginform form .input-group {
+.signupform form .input-group {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.loginform form input {
+.signupform form input {
   height: 40px;
   background: #d9d9d9;
   border-radius: 8px;
@@ -66,7 +66,13 @@
   outline: none;
   padding: 5px;
 }
-.loginform form p {
+input[text] {
+  width: 100%;
+}
+input[type="checkbox"] {
+  width: 20px !important;
+}
+.signupform form p {
   font-family: "Apercu Pro";
   font-style: normal;
   font-weight: 300;
@@ -75,7 +81,27 @@
   text-align: right;
   color: #000000;
 }
-.loginform form button {
+/* .signupform form t-c { 
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+}*/
+
+.t-c {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 1em;
+}
+
+.t-c label {
+  padding: 0.78em 0;
+}
+
+.signupform form button {
   font-family: "Apercu Pro";
   font-style: normal;
   font-weight: 900;
@@ -89,7 +115,7 @@
   border: none;
   cursor: pointer;
 }
-.loginform > span {
+.signupform > span {
   font-family: "Apercu Pro";
   font-style: normal;
   font-weight: 400;
