@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+.content,
+.signupform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: calc(50% - 15px);
+}
+.content {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+}
+.content img {
+  max-width: 100%;
+}
+.signupform h1 {
+  margin-top: 40px;
+  font-family: "Apercu Pro";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+.signupform form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.signupform form .input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.signupform form input {
+  height: 40px;
+  background: #d9d9d9;
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 5px;
+}
+input[text] {
+  width: 100%;
+}
+input[type="checkbox"] {
+  width: 20px !important;
+}
+.signupform form p {
+  font-family: "Apercu Pro";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: right;
+  color: #000000;
+}
+/* .signupform form t-c { 
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+}*/
+
+.t-c {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 1em;
+}
+
+.t-c label {
+  padding: 0.78em 0;
+}
+
+.signupform form button {
+  font-family: "Apercu Pro";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  height: 40px;
+  color: #000000;
+  background: rgba(217, 217, 217, 0.51);
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+.signupform > span {
+  font-family: "Apercu Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+@media screen and (min-width: 600px) {
+  .main-body {
+    flex-direction: row;
+  }
+}
+.or-social {
+  font-family: "Apercu Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+}
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.socials a img {
+  max-width: 24px;
+}
