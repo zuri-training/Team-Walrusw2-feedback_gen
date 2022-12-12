@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Landing Page</title>
+    </head>
+
+    <body>
+        <h1>My Surveys</h1>
+        {% for survey in questionnaires %}
+        <p>{{ survey.title }}</p>
+        <pre>{{ survey.questionnaire }}</pre>
+        <button onclick="navigator.clipboard.writeText('http://127.0.0.1:8000/reply_survey/{{survey.id}}/'), alert('link copied')">copy link to survey</button>
+        <p>Replies:</p>
+            {% for reply in replies %}
+                {% if reply.questionnaire == survey %}
+                <pre>by: {{ reply.email }}</pre>
+                <pre>{{ reply.reply }}</pre>
+                <br>
+                {% endif %}
+            {% endfor %}
+        <hr>
+        {% endfor %}
+    </body>
+</html>

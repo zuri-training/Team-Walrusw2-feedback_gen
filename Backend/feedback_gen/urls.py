@@ -24,15 +24,24 @@ from accounts.views import (
 from .views import (
     home_view,
     dashboard_view,
+    create_questionnaire_view,
+    choose_template_for_questionnaire_view,
+    my_surveys_view,
+    reply_survey_view,
 )
 
 urlpatterns = [
     path('', home_view),  # home view
-    path('dashboard_view/', dashboard_view),  # index view
+    path('dashboard/', dashboard_view),  # index view
 
     path('admin/', admin.site.urls),
 
     path('login/', login_view),
     path('logout/', logout_view),
     path('signup/', signup_view),
+    path('choose_template_for_questionnaire/',
+         choose_template_for_questionnaire_view),
+    path('create_questionnaire/', create_questionnaire_view),
+    path('dashboard/my_surveys/', my_surveys_view),
+    path('reply_survey/<int:id>/', reply_survey_view),
 ]

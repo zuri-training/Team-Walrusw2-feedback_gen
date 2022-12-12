@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="{% static 'login.css' %}" rel="stylesheet" type="text/css">
+        <title>Landing Page</title>
+    </head>
+
+    <body>
+        {% if not created %}
+        <h1>Create Questionnaire</h1>
+        <div style="margin-top:30px;">
+            <form action="." method="POST">
+                {% csrf_token %}
+                <div>
+                    <input type="text" name="title" placeholder="Title"/>
+                </div>
+                <div style="margin-top:30px;">
+                    <textarea name="questionnaire" placeholder="Questions"></textarea>
+                </div>
+                <button style="margin-top:30px;" type="submit">Create</button>
+            </form>
+        </div>
+        {% else %}
+        <img src="{% static 'images/w2s.jpg' %}" alt="w2s" class="w2s-icon">
+        <div class="container">
+            <div class="heading">
+               <div>
+                <i class="fa-solid fa-house"></i>
+                 <a href="home.html">Home</a>
+               </div>
+               <div class="create-survey">
+                  <a href="survey.html">Create a new Survey</a>
+                </div>
+             </div>
+             <div class="body">
+             <div class="img">
+                 <img src="{% static 'images/successful.jpeg' %}" alt="sucessful">
+              </div>
+              <div class="text">
+                 <p>Survey Creation</p>
+                 <h1>SUCESSFUL!</h1>
+                 <i class="fa-regular fa-circle-check icon"></i><br>
+                 <button class="btn" >Share <i class="fa-solid fa-share-nodes"></i></button>
+             </div>
+             </div>
+        </div>
+        {% endif %}
+    </body>
+</html>
