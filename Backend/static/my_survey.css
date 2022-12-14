@@ -1,0 +1,259 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: "sans-sarif";
+  }
+  
+  .container {
+    max-width: 1440px;
+    max-height: 1024px;
+    display: flex;
+  }
+  
+  .left {
+    background-color: #384949;
+    width: 30%;
+    height: 100%;
+    padding: 20px 65px;
+    font-size: 20px;
+    line-height: 20px;
+  }
+  
+  .left-top {
+    width: 243px;
+    height: 111px;
+    background-image: url(./images/logo-transparent.png);
+    background-size: fit;
+    background-repeat: none;
+  }
+  
+  .left-middle {
+    margin-top: 100px;
+    margin-bottom: 500px;
+  }
+  
+  .left-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .left-link {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .left-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 20px;
+    line-height: 20px;
+    color: white;
+  }
+  
+  select {
+    background-color: #384949;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+  }
+  
+  .left-settings {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .right {
+    background-color: #fff;
+    width: 100%;
+    height: 1024px;
+    display: flex;
+    flex-direction: column;
+  }
+  .right-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #c5e6e8;
+  }
+  
+  .search {
+    position: relative;
+  }
+  
+  .label-icon {
+    position: absolute;
+    top: 4px;
+    left: 5px;
+  }
+  .search-input {
+    padding: 5px 30px;
+    font-size: 20px;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+  
+  .help {
+    display: flex;
+    gap: 20px;
+  }
+  .question {
+    height: 60px;
+    width: 60px;
+    background-image: url(./images/mdi-light_help-circle.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  .user {
+    height: 60px;
+    width: 60px;
+    background-image: url(./images/Group-73.png);
+  
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  
+  .right-body {
+    display: flex;
+    width: 100%;
+    padding: 40px;
+  }
+  
+  .right-body-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+  }
+  
+  .right-body-right {
+    flex: 1;
+    padding: 0px 0px 0px 70px;
+  }
+  
+  .gtks {
+    font-size: 30px;
+    padding: 15px 0px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-top: 150px;
+  }
+  
+  .explore {
+    font-size: 16px;
+    padding: 20px 0px;
+  }
+  
+  .choosing {
+    padding: 10px 25px;
+    line-height: 45px;
+  }
+  
+  .home {
+    display: block;
+    font-size: 24px;
+    line-height: 15px;
+    font-weight: bold;
+    background-color: #c5e6e8;
+    color: black;
+    padding: 15px 15px;
+    max-width: 90px;
+    margin: 20px 0px;
+    text-decoration: none;
+    border-radius: 10px;
+  }
+
+  .copy_btn {
+    display: block;
+    font-size: 18px;
+    line-height: 15px;
+    font-weight: bold;
+    background-color: #c5e6e8;
+    color: black;
+    padding: 8px 15px;
+    max-width: 250px;
+    margin: 20px 0px;
+    text-decoration: none;
+    border-radius: 10px;
+  }
+  
+  .type-surveybox {
+    display: flex;
+    flex-direction: column;
+    width: 434px;
+    height: 360px;
+    background-color: #c5e6e8;
+    padding: 15px;
+    gap: 10px;
+    border-radius: 10px;
+  }
+  .type-surveybox input {
+    padding: 10px;
+    border: none;
+    outline: none;
+    background-color: #c5e6e8;
+    width: 100%;
+    margin-bottom: 150px;
+  }
+  
+  .textarea {
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    background-color: #c5e6e8;
+    resize: none;
+  }
+  
+  .textarea::placeholder {
+    font-weight: bold;
+    font-size: 26px;
+    color: black;
+  }
+  
+  .type-surveybox button {
+    padding: 5px;
+    font-size: 20px;
+    color: white;
+    background-color: #384949;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .feedback {
+    width: 434px;
+    height: 327px;
+    background-color: #c5e6e8;
+    border-radius: 10px;
+  }
+  
+  .feedback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  
+  .targeted {
+    width: 100%;
+    background-color: #a8dadc;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+  
+  .feedback p {
+    width: 80%;
+  }
+  

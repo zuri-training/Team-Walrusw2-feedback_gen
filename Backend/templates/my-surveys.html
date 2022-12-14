@@ -1,27 +1,44 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Landing Page</title>
+        <link href="{% static 'my_survey.css' %}" rel="stylesheet" type="text/css">
+        <title>My Surveys</title>
     </head>
 
     <body>
-        <h1>My Surveys</h1>
-        {% for survey in questionnaires %}
-        <p>{{ survey.title }}</p>
-        <pre>{{ survey.questionnaire }}</pre>
-        <button onclick="navigator.clipboard.writeText('http://127.0.0.1:8000/reply_survey/{{survey.id}}/'), alert('link copied')">copy link to survey</button>
-        <p>Replies:</p>
-            {% for reply in replies %}
-                {% if reply.questionnaire == survey %}
-                <pre>by: {{ reply.email }}</pre>
-                <pre>{{ reply.reply }}</pre>
-                <br>
-                {% endif %}
-            {% endfor %}
-        <hr>
-        {% endfor %}
+        <div class="container">
+      
+            <div class="right">
+              <div class="right-header">
+                <h1>My Surveys</h1>
+              </div>
+              <div class="right-body">
+                <div class="right-body-left">
+                    <a class="home" href="/dashboard/">Home</a>
+                    {% for survey in questionnaires %}
+                    <h2>{{ survey.title }}</h2>
+                    <pre>{{ survey.questionnaire }}</pre>
+                    <button class="copy_btn" onclick="navigator.clipboard.writeText('http://127.0.0.1:8000/reply_survey/{{survey.id}}/'), alert('link copied')">copy link to survey</button>
+                    <p>Replies:</p>
+                        {% for reply in replies %}
+                            {% if reply.questionnaire == survey %}
+                            <pre>by: {{ reply.email }}</pre>
+                            <pre>{{ reply.reply }}</pre>
+                            <br>
+                            {% endif %}
+                        {% endfor %}
+                    <hr>
+                    <br>
+                    <br>
+                    {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
     </body>
 </html>

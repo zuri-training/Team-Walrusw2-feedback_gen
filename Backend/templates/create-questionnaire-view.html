@@ -6,23 +6,39 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="{% static 'login.css' %}" rel="stylesheet" type="text/css">
-        <title>Landing Page</title>
+        <link href="{% static 'create_survey_view.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'success.css' %}" rel="stylesheet" type="text/css">
+        <title>Create survey</title>
     </head>
 
     <body>
         {% if not created %}
-        <h1>Create Questionnaire</h1>
+        <div class="right-header">
+            <div class="row">
+                <div class="col">
+                    <nav class="topnav">
+                        <div>
+                            <div class="topnav navigation">
+                                <h1>Create Survey</h1>
+                            </div>
+                        </div>
+                        <div class="m">
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        
         <div style="margin-top:30px;">
             <form action="." method="POST">
                 {% csrf_token %}
                 <div>
-                    <input type="text" name="title" placeholder="Title"/>
+                    <input class="textarea_title" type="text" name="title" placeholder="Title"/>
                 </div>
                 <div style="margin-top:30px;">
-                    <textarea name="questionnaire" placeholder="Questions"></textarea>
+                    <textarea class="textarea_survey" name="questionnaire" placeholder="Questions"></textarea>
                 </div>
-                <button style="margin-top:30px;" type="submit">Create</button>
+                <button class="create_btn" style="margin-top:30px;" type="submit">Create</button>
             </form>
         </div>
         {% else %}
@@ -31,10 +47,10 @@
             <div class="heading">
                <div>
                 <i class="fa-solid fa-house"></i>
-                 <a href="home.html">Home</a>
+                 <a href="/dashboard">Home</a>
                </div>
                <div class="create-survey">
-                  <a href="survey.html">Create a new Survey</a>
+                  <a href="/create_questionnaire">Create a new Survey</a>
                 </div>
              </div>
              <div class="body">
@@ -45,7 +61,7 @@
                  <p>Survey Creation</p>
                  <h1>SUCESSFUL!</h1>
                  <i class="fa-regular fa-circle-check icon"></i><br>
-                 <button class="btn" >Share <i class="fa-solid fa-share-nodes"></i></button>
+                 <button class="btn" onclick="navigator.clipboard.writeText('http://127.0.0.1:8000/reply_survey/{{object.id}}/'), alert('link copied')">Share <i class="fa-solid fa-share-nodes"></i></button>
              </div>
              </div>
         </div>
