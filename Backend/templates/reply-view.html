@@ -1,0 +1,96 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="{% static 'reply_view.css' %}" rel="stylesheet" type="text/css">
+        <title>{{ questionnaire_obj.title }}</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="right">
+    
+                <!-- Top Navigation Bar Here  -->
+                <main>
+                    <div class="right-header">
+                        <div class="row">
+                            <div class="col">
+                                <nav class="topnav">
+                                    <div>
+                                        <div class="topnav navigation">
+                                            <h1>Reply "{{ questionnaire_obj.title }}"</h1>
+                                        </div>
+                                    </div>
+                                    <div class="m">
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right-body">
+                        <div class="right-body-bottom">
+                            {% if not replied %}
+                            <div style="margin-top:30px;">
+                                <div>
+                                    <pre>{{ questionnaire_obj.questionnaire }}</pre>
+                                </div>
+                                <form action="." method="POST">
+                                    {% csrf_token %}
+                                    <div style="margin-top:30px;">
+                                        <textarea class="textarea_reply" name="reply" placeholder="reply here" required></textarea>
+                                    </div>
+                                    <div style="margin-top:30px;">
+                                        <input class="textarea_email" type="text" name="email" placeholder="email" required/>
+                                    </div>
+                                    <button style="margin-top:30px;" type="submit">Reply</button>
+                                </form>
+                            </div>
+                            {% else %}
+                            <img src="{% static 'images/w2s.jpg' %}" alt="w2s" class="w2s-icon">
+                            <div class="container">
+                                <div class="heading">
+                                   <div>
+                                    <i class="fa-solid fa-house"></i>
+                                   </div>
+                                 </div>
+                                 <div class="body">
+                                    <div class="img">
+                                        <img src="{% static 'images/successful.jpeg' %}" alt="sucessful">
+                                    </div>
+                                    <div class="text">
+                                        <p>Survey reply</p>
+                                        <h1>SUCESSFUL!</h1>
+                                        <i class="fa-regular fa-circle-check icon"></i><br>
+                                    </div>
+                                 </div>
+                            </div>
+                            {% endif %}
+                        </div>
+    
+                        <footer>
+                            <div class="footer">
+                                <div class="section-1">
+                                    <img src="{% static 'images/w2s.jpg' %}" alt="w2s icon" class="w2s-icon">
+                                    <p>"Feedback to insight"</p>
+                                </div>
+                                <div class="section-2">
+                                    <div class="icons">
+                                        <img src="{% static 'images/IG.jpg' %}" alt="Instragram" class="icon">
+                                        <img src="{% static 'images/facebook.jpg' %}" alt="facebook icon" class="icon">
+                                        <img src="{% static 'images/twitter.jpg' %}" alt="twitter icon" class="icon">
+                                        <img src="{% static 'images/tiktok.jpg' %}" alt="tiktok icon" class="icon">
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </body>
+</html>

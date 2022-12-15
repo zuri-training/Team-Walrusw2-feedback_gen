@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,17 +12,16 @@
   <body>
     <header>
         <div class="container">
-          <img src="{% static 'Walrusw2-img/TwalrusW2logo.svg' %}" alt="TwalrusW2logo"/>
+          <img src="{% static 'images/TwalrusW2logo.svg' %}" alt="TwalrusW2logo"/>
     </div>
     </header>
     <section>
       <div class="container">
       <div class="main-body">
 
-        <a href="/">Home</a>    
         <div class="logoutform">
-            <h1>Sign Out</h1>
             {% if request.user.is_authenticated %}
+            <h1>Sign Out</h1>
             <div style="margin-top:30px;">
                 <form method="POST">
                     {% csrf_token %}
@@ -32,6 +32,7 @@
             </div>
 
             {% else %}
+            <h1>Signed Out</h1>
             <p>Your're not logged in. Would you like to <a href="/login/">login</a></p>
             {% endif %}
 
