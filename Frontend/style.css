@@ -397,7 +397,7 @@ width:100%;
 }
 
 .col4 {
-  background-color: rgb(24, 54, 23);
+  background-color: #384949;
   margin: 0px;
   padding:0px; 
   flex:0 0 auto;
@@ -408,7 +408,7 @@ align-items: top;
 }
 
 .col5 {
-  background-color: rgb(208, 245, 207);
+  background-color: white;
   margin: 0px;
   padding:0px; 
   flex:0 0 auto;
