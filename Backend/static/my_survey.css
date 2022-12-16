@@ -10,6 +10,40 @@
     max-height: 1024px;
     display: flex;
   }
+
+  .left {
+    background-color: #384949;
+    width: 30%;
+    height: 1024px;
+    padding: 20px 65px;
+    font-size: 20px;
+    line-height: 20px;
+  }
+  
+  .left-top {
+    width: 243px;
+    height: 111px;
+    background-image: url(./images/logo-transparent.png);
+    background-size: fit;
+    background-repeat: none;
+  }
+  
+  .left-middle {
+    margin-top: 100px;
+    margin-bottom: 500px;
+  }
+  
+  .left-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .left-link {
+    text-decoration: none;
+    color: white;
+  }  
   
   .right {
     background-color: #fff;
@@ -19,12 +53,31 @@
     flex-direction: column;
   }
   
+  .right-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #c5e6e8;
+  }
+
   .right-body {
     display: flex;
     width: 100%;
+    height: 100%;
     padding: 40px;
+    overflow: scroll;
   }
   
+  .right-body::-webkit-scrollbar {
+    display: none;
+}
+
+.right-body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
   .right-body-left {
     display: flex;
     flex-direction: column;
