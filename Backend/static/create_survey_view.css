@@ -11,7 +11,7 @@
 }
 
 .textarea_survey {
-    width: 60%;
+    width: 100%;
   height: 200px;
   padding: 12px 20px;
   box-sizing: border-box;
@@ -26,7 +26,7 @@
     font-size: 24px;
     line-height: 24px;
     font-weight: bold;
-    background-color: white;
+    background-color: #A8DADB;
     color: black;
     padding: 12px 25px;
     max-width: 260px;
@@ -46,6 +46,7 @@ topnav {
             justify-content: space-between;
     padding-top: 2px;
     padding-bottom: 2px;
+    color: bisque;
   }
 
 .row {

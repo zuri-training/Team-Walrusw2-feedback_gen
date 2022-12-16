@@ -6,39 +6,58 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="{% static 'my_survey.css' %}" rel="stylesheet" type="text/css">
+        <link href="/static/my_survey.css?{% now 'U' %}" rel="stylesheet" type="text/css">
         <title>My Surveys</title>
     </head>
 
     <body>
         <div class="container">
-      
-            <div class="right">
-              <div class="right-header">
-                <h1>My Surveys</h1>
-              </div>
-              <div class="right-body">
-                <div class="right-body-left">
-                    <a class="home" href="/dashboard/">Home</a>
-                    {% for survey in questionnaires %}
-                    <h2>{{ survey.title }}</h2>
-                    <pre>{{ survey.questionnaire }}</pre>
-                    <button class="copy_btn" onclick="navigator.clipboard.writeText('http://127.0.0.1:8000/reply_survey/{{survey.id}}/'), alert('link copied')">copy link to survey</button>
-                    <p>Replies:</p>
-                        {% for reply in replies %}
-                            {% if reply.questionnaire == survey %}
-                            <pre>by: {{ reply.email }}</pre>
-                            <pre>{{ reply.reply }}</pre>
-                            <br>
-                            {% endif %}
-                        {% endfor %}
-                    <hr>
-                    <br>
-                    <br>
+          <div class="left">
+            <div class="left-top"></div>
+    
+            <div class="left-middle">
+              <ul class="left-links">
+                <li>
+                  <a class="left-link" href="/dashboard/">Home</a>
+                </li>
+                <li>
+                  <a class="left-link" href="#">My Surveys</a>
+                </li>
+                <li>
+                  <a class="left-link" href="#">Plans and Pricing</a>
+                </li>
+                <li>
+                  <a class="left-link" href="#">Upgrade</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="right">
+            <div class="right-header">
+              <h1>My Surveys</h1>
+            </div>
+            <div class="right-body">
+              <div class="right-body-left">
+                {% for survey in questionnaires %}
+                <h2>{{ survey.title }}</h2>
+                <pre style="background-color: aliceblue; border-radius: 5px; padding: 10px;">{{ survey.questionnaire }}</pre>
+                <button class="copy_btn" onclick="navigator.clipboard.writeText('http://127.0.0.1:8000/reply_survey/{{survey.id}}/'), alert('link copied')">copy link to survey</button>
+                <p>Replies:</p>
+                    {% for reply in replies %}
+                        {% if reply.questionnaire == survey %}
+                        <pre style="background-color: #dafaef96; border-radius: 5px; padding: 10px;">from: {{ reply.email }}</pre>
+                        <pre style="background-color: #7fffd496; border-radius: 5px; padding: 10px;">{{ reply.reply }}</pre>
+                        <br>
+                        {% endif %}
                     {% endfor %}
-                </div>
+                <hr>
+                <br>
+                <br>
+                {% endfor %}
               </div>
             </div>
+          </div>
           </div>
     </body>
 </html>
