@@ -13,33 +13,28 @@
 
     <body>
         {% if not created %}
-        <div class="right-header">
-            <div class="row">
-                <div class="col">
-                    <nav class="topnav">
-                        <div>
-                            <div class="topnav navigation">
-                                <h1>Create Survey</h1>
-                            </div>
-                        </div>
-                        <div class="m">
-                        </div>
-                    </nav>
-                </div>
+        <img src="{% static 'images/w2s.jpg' %}" alt="w2s" class="w2s-icon">
+        <div class="container">
+            <h1>Create Survey</h1>  
+            <div>
+                <form action="." method="POST">
+                    {% csrf_token %}
+                    <div style="margin: 50px 0 20px 50px;">
+                        <input class="textarea_title" type="text" name="title" placeholder="Title"/>
+                    </div>
+                    <pre>
+        write survey in this format:
+        1) ...
+        2) ...
+        3) ... 
+        nb: replies will also be in this format
+                    </pre>
+                    <div style="margin: 20px 50px;">
+                        <textarea class="textarea_survey" name="questionnaire" placeholder="Questions"></textarea>
+                    </div>
+                    <button class="create_btn" style="margin: 20px 0 20px 50px;" type="submit">Create</button>
+                </form>
             </div>
-        </div>
-        
-        <div style="margin-top:30px;">
-            <form action="." method="POST">
-                {% csrf_token %}
-                <div>
-                    <input class="textarea_title" type="text" name="title" placeholder="Title"/>
-                </div>
-                <div style="margin-top:30px;">
-                    <textarea class="textarea_survey" name="questionnaire" placeholder="Questions"></textarea>
-                </div>
-                <button class="create_btn" style="margin-top:30px;" type="submit">Create</button>
-            </form>
         </div>
         {% else %}
         <img src="{% static 'images/w2s.jpg' %}" alt="w2s" class="w2s-icon">
