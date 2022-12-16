@@ -43,5 +43,5 @@ urlpatterns = [
          choose_template_for_questionnaire_view),
     path('create_questionnaire/', create_questionnaire_view),
     path('dashboard/my_surveys/', my_surveys_view),
-    path('reply_survey/<int:id>/', reply_survey_view),
+    path('<str:token>/', reply_survey_view),
 ]

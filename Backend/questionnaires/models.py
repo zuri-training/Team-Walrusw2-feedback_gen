@@ -7,6 +7,7 @@ class Questionnaire(models.Model):
     author = models.CharField(max_length=100)
     title = models.CharField(max_length=40)
     questionnaire = models.CharField(max_length=10000)
+    short_link = models.CharField(max_length=20)
 
     def __str__(self):
         return self.title

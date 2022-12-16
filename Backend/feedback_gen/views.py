@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 from questionnaires.models import Questionnaire, Reply
+from questionnaires.shortener import shortener
 from django.shortcuts import render
 
 
@@ -34,16 +35,20 @@ def choose_template_for_questionnaire_view(request):
 @login_required
 def create_questionnaire_view(request):
     context = {}
+    token = ""
     username = request.user.username
     if request.method == "POST":
         url = request.META['HTTP_HOST']
+        token = shortener().issue_token()
         title = request.POST.get("title")
         questionnaire = request.POST.get("questionnaire")
         questionnaire_obj = Questionnaire.objects.create(
-            author=username, title=title, questionnaire=questionnaire)
+            author=username, title=title, questionnaire=questionnaire, short_link=token)
         context['url'] = url
+        context['token'] = token
         context['object'] = questionnaire_obj
         context["created"] = True
+        print(token)
 
     # django templates
     return render(request, 'create-questionnaire-view.html', context=context)
@@ -65,8 +70,8 @@ def my_surveys_view(request):
     return HttpResponse(HTML_STRING)
 
 
-def reply_survey_view(request, id):
-    questionnaire = Questionnaire.objects.get(id=id)
+def reply_survey_view(request, token):
+    questionnaire = Questionnaire.objects.get(short_link=token)
     context = {}
     context['questionnaire_obj'] = questionnaire
     if request.method == "POST":
