@@ -42,7 +42,7 @@
                 {% for survey in questionnaires %}
                 <h2>{{ survey.title }}</h2>
                 <pre style="background-color: aliceblue; border-radius: 5px; padding: 10px;">{{ survey.questionnaire }}</pre>
-                <button class="copy_btn" onclick="navigator.clipboard.writeText('http://127.0.0.1:8000/reply_survey/{{survey.id}}/'), alert('link copied')">copy link to survey</button>
+                <button class="copy_btn" onclick="navigator.clipboard.writeText('{{ url }}/reply_survey/{{survey.id}}/'), alert('link copied')">copy link to survey</button>
                 <p>Replies:</p>
                     {% for reply in replies %}
                         {% if reply.questionnaire == survey %}

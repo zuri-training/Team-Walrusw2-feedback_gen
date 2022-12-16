@@ -36,10 +36,12 @@ def create_questionnaire_view(request):
     context = {}
     username = request.user.username
     if request.method == "POST":
+        url = request.META['HTTP_HOST']
         title = request.POST.get("title")
         questionnaire = request.POST.get("questionnaire")
         questionnaire_obj = Questionnaire.objects.create(
             author=username, title=title, questionnaire=questionnaire)
+        context['url'] = url
         context['object'] = questionnaire_obj
         context["created"] = True
 
@@ -53,7 +55,9 @@ def my_surveys_view(request):
     # from database
     questionnaire_obj = Questionnaire.objects.all()
     reply_obj = Reply.objects.all()
-    context = {"questionnaires": questionnaire_obj, 'replies': reply_obj}
+    url = request.META['HTTP_HOST']
+    context = {"url": url, "questionnaires": questionnaire_obj,
+               'replies': reply_obj}
 
     # django templates
     HTML_STRING = render_to_string(
