@@ -3,7 +3,9 @@
   	background-color:rgb(248, 249, 250)
 }
 
-
+*{
+  overflow-x:hidden;
+}
 /* Add a black background color to the top navigation */
 .topnav {
       position: relative;
@@ -40,13 +42,17 @@
 	vertical-align:middle;
 	cursor:pointer;
 	user-select:none;
-	background-color:rgb(5, 101, 5);
+	/* background-color:rgb(5, 101, 5); */
 	border:1px solid rgb(7, 63, 29);
 	padding:.375rem .75rem;
 	font-size:1.9rem;
 	border-radius:.50rem;
 }
 
+
+/* .topnav a:hover { */
+/* color:red; */
+/* } */
 .bt2_topnav {
   position: relative;
 	z-index:2;
@@ -84,11 +90,12 @@
 	vertical-align: left;
 	cursor:pointer;
 	user-select:none;
-	background-color:rgb(5, 101, 5);
-	border:1px solid rgb(7, 63, 29);
+	background-color:cadetblue;
+	border:1px solid #384949;
 	padding:.375rem .75rem;
 	font-size:1.9rem;
 	border-radius:.25rem;
+ 
 }
   
 .bt_sp {
@@ -99,16 +106,18 @@
 	padding: 10px 20px;
 	font-size:1.9rem;
 	border-radius:.5px;
-	background-color: rgb(11, 83, 34);
+	/* background-color: rgb(11, 83, 34); */
   color: rgb(255, 255, 255);
   font-size: 1rem;
+  background: #384949;
+border-radius: 8px;
  
 }
 
   /* Style the links inside the navigation bar */
   .topnav a {
   
-    color: #0e0202;
+     color: #0e0202; 
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -117,14 +126,46 @@
   
   /* Change the color of links on hover */
   .topnav a:hover {
-    background-color: rgb(196, 236, 20);
+    background-color: grey;
     color: black;
   }
   /* Add a color to the active/current link */
 .topnav a.active {
-    background-color: #cce4db;
-    color: white;
+    background-color: grey;
+     color: white; 
   }
+
+  .sign-up-link{
+    display:block;
+    margin-left:10px;
+    background-color:#384949; 
+    color:white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-left: 150px;
+   /* font-size: 20px; */
+  }
+
+  .login-link{
+    display:block;
+    margin-left:10px;
+    background-color:white;
+    color:black ;
+    border:1px solid black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-left: 20px;
+    padding: 15px 32px;
+    
+  }
+  .topnav a:last-of-type:hover {
+    background-color:white;
+    color:blue;
+    border-color: blue;
+    
+
+  }
+
   /* backgroung colour after div */
   .h1 a.h1{
     background-color: aquamarine;
@@ -147,6 +188,7 @@
   align-items: center;
   
   }
+ 
  
   .flex-container {
     display: flex;
@@ -262,6 +304,7 @@
 
 .row2 {
   display: flex;
+  justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 5px;
   margin-right: 5px;
@@ -280,6 +323,7 @@
   text-align: center;
   background-color: rgb(33, 37, 41);
   color:rgba(248, 249, 250);
+  
 }
 
 .row4 {
@@ -289,6 +333,10 @@
   text-align: center;
   background-color: rgb(255, 255, 255);
   color:rgb(10, 32, 20);
+  justify-content: center;
+  /* border-radius: 8px 8px 0px 0px; */
+  /* box-shadow: 8px 8px 16px rgba(189, 55, 66, 0.4); */
+  /* border:2x solid black;   */
 
 }
 
@@ -311,7 +359,7 @@
 }
 
 .col2 {
-
+  border:2x solid black; 
   background-color: rgb(16, 171, 156);
   margin: 10px;
   padding:0px; 
@@ -326,7 +374,7 @@
     margin-bottom:1.5rem;
   margin-bottom:3rem;
   width:16.66666667%;
-
+  
 
 }
 
@@ -342,11 +390,14 @@ width:100%;
   margin-bottom:3rem;
   border-radius:.25rem;
   border-color:#00ffe5;
+
+}
+.col3:hover{
+  border: 2px solid rgb(89, 87, 218);
 }
 
-
 .col4 {
-  background-color: rgb(24, 54, 23);
+  background-color: #384949;
   margin: 0px;
   padding:0px; 
   flex:0 0 auto;
@@ -357,7 +408,7 @@ align-items: top;
 }
 
 .col5 {
-  background-color: rgb(208, 245, 207);
+  background-color: white;
   margin: 0px;
   padding:0px; 
   flex:0 0 auto;
@@ -459,7 +510,7 @@ height: 40px;
 }
 
 .Select_Plan{
-  padding-left: .25rem;
+  /* padding-left: .25rem; */
   max-width:100%;
   margin-left:25%;
   flex:0 0 auto;
@@ -518,7 +569,7 @@ height: 40px;
 }
 
 .bg-info{
-  background-color:rgba(240, 13, 143, 0.5);
+   background-color:rgba(240, 13, 143, 0.5); 
 }
 
 .bg-success{
@@ -626,9 +677,16 @@ height: 40px;
   width:16.66666667%
 }
 
+.col2:hover{
+  border: 2px solid rgb(89, 87, 218);
+}
+
 .col-5{
   flex:0 0 auto;
   width:41.66666667%
+}
+.col2:hover{
+  border: 2px solid rgb(89, 87, 218);
 }
 
 .col-7{
@@ -1122,7 +1180,7 @@ pt-3{
 
 .ps-5{
   padding-left:3rem 
-} */
+} 
 
 
 
@@ -1140,28 +1198,62 @@ body{
 }
 .about{
   display:flex;
+  /* padding: 0 10px; */
+  overflow-y: hidden;
 }
 .about img{
-  width:100px;
-  height:50px;
+  width:130px;
+  height:100px;
   align-items :center ;
   margin-top :10px auto;
 }
 .about .person1{
   background:#4560EF ;
+
 }
+.about .person1:hover{
+  transform: scaleY(1.1);
+  box-shadow: 8px 8px 16px rgba(255, 196, 253, 0.4);
+border-radius: 8px;
+}
+
+
 .about .person2{
   background: #8FFDFE;
 }
+.about .person2:hover{
+  transform: scaleY(1.1);
+  box-shadow: 8px 8px 16px rgba(255, 196, 253, 0.4);
+border-radius: 8px;
+}
+
 .about .person3{
   background: #FFC4FE;
 }
+.about .person3:hover{
+  transform: scaleY(1.1);
+  box-shadow: 8px 8px 16px rgba(255, 196, 253, 0.4);
+border-radius: 8px;
+}
+
 .about .person4{
   background: #FFDFAF;
 }
+.about .person4:hover{
+  transform: scaleY(1.1);
+  box-shadow: 8px 8px 16px rgba(255, 196, 253, 0.4);
+border-radius: 8px;
+}
+
 .about .person5{
   background:#F8529E ;
 }
+.about .person5:hover{
+  transform: scaleY(1.1);
+  box-shadow: 8px 8px 16px rgba(255, 196, 253, 0.4);
+border-radius: 8px;
+}
+
 .about .person1, .about .person2, .about .person3, .about .person4, .about .person5{
   height:300px;
   padding:10px;
@@ -1195,6 +1287,7 @@ body{
 }
 /* footer */
 .footer{
+  margin-top: 100px;
   background:#374949 ;
   display :flex;
   justify-content:space-between;
@@ -1212,6 +1305,7 @@ body{
   flex-direction :column ;
   justify-content :space-around ;
   padding :10px ;
+  margin-right: 100px;
 }
 .w2s-icon{
   width:200px;
