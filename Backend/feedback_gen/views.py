@@ -2,7 +2,9 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 from questionnaires.models import Questionnaire, Reply
+from questionnaires.shortener import shortener
 from django.shortcuts import render
+import csv
 
 
 def home_view(request):
@@ -34,14 +36,20 @@ def choose_template_for_questionnaire_view(request):
 @login_required
 def create_questionnaire_view(request):
     context = {}
-    username = request.user.username
+    token = ""
+    email = request.user.email
     if request.method == "POST":
+        url = request.META['HTTP_HOST']
+        token = shortener().issue_token()
         title = request.POST.get("title")
         questionnaire = request.POST.get("questionnaire")
         questionnaire_obj = Questionnaire.objects.create(
-            author=username, title=title, questionnaire=questionnaire)
+            author=email, title=title, questionnaire=questionnaire, short_link=token)
+        context['url'] = url
+        context['token'] = token
         context['object'] = questionnaire_obj
         context["created"] = True
+        print(token)
 
     # django templates
     return render(request, 'create-questionnaire-view.html', context=context)
@@ -53,7 +61,9 @@ def my_surveys_view(request):
     # from database
     questionnaire_obj = Questionnaire.objects.all()
     reply_obj = Reply.objects.all()
-    context = {"questionnaires": questionnaire_obj, 'replies': reply_obj}
+    url = request.META['HTTP_HOST']
+    context = {"url": url, "questionnaires": questionnaire_obj,
+               'replies': reply_obj}
 
     # django templates
     HTML_STRING = render_to_string(
@@ -61,8 +71,8 @@ def my_surveys_view(request):
     return HttpResponse(HTML_STRING)
 
 
-def reply_survey_view(request, id):
-    questionnaire = Questionnaire.objects.get(id=id)
+def reply_survey_view(request, token):
+    questionnaire = Questionnaire.objects.get(short_link=token)
     context = {}
     context['questionnaire_obj'] = questionnaire
     if request.method == "POST":
@@ -75,3 +85,26 @@ def reply_survey_view(request, id):
 
     # django templates
     return render(request, 'reply-view.html', context=context)
+
+
+def export_to_csv(request):
+    surveys = Questionnaire.objects.all()
+    replies = Reply.objects.all()
+
+    response = HttpResponse('')
+    response['Content-Disposition'] = 'attachment; filename=survey_export.csv'
+    writer = csv.writer(response)
+    writer.writerow(['Title', 'Survey_question'])
+
+    writer_ = csv.writer(response)
+    writer_.writerow(['Replier', 'Reply'])
+
+    survey_fields = surveys.values_list('title', 'questionnaire')
+    reply_fields = replies.values_list('email', 'reply')
+
+    for survey in survey_fields:
+        writer.writerow(survey)
+        for reply in reply_fields:
+            writer_.writerow(reply)
+
+    return response
