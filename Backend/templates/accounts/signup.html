@@ -18,41 +18,55 @@
     </header>
     <section>
       <div class="container">
-      <div class="main-body">
- 
-        <div class="signupform">
-            <h1>Create Account</h1>
-            {% if not request.user.is_authenticated %}
-            <div style="margin-top:30px;">
-                <form method="POST">
-                    {% csrf_token %}
-                    
-                    {{ form.as_p }}
-                    <label>I agree to the Terms of use and privacy policy</label>
-                    <button class="btn" type="submit">Sign Up</button>
-                </form>
+        <div class="main-body">
+  
+          <div class="signupform">
+              <h1>Create Account</h1>
+              {% if not request.user.is_authenticated %}
+              <div style="margin-top:30px;">
+                  <form method="POST">
+                      {% csrf_token %}
+                      {{ form.email.label }}  
+                      {{ form.email }}
+
+                      {{ form.password1.label }}  
+                      {{ form.password1 }}
+
+                      {{ form.password2.label }}  
+                      {{ form.password2 }}
+
+                      {{ form.errors }}
+                      <label>I agree to the Terms of use and privacy policy</label>
+                      <button class="btn" type="submit">Sign Up</button>
+                  </form>
+              </div>
+
+              <p class="or-social">Or sign up  with</p>
+              <div class="socials">
+                    <a><img src="{% static 'images/Google.svg' %}" alt="Google" /></a>
+                    <a><img src="{% static 'images/Facebook.svg' %}" alt="Facebook" /></a>
+                    <a><img src="{% static 'images/Apple.svg' %}" alt="Apple" /></a>
+                    <a><img src="{% static 'images/Windows.svg' %}" alt="Windows" /></a>
+                </ul>
+
+              <p>Already have an account? <a href="/login">Sign in</a></p>
+
+              {% else %}
+              <p>Your're already logged in and cannot register. Would you like to <a href="/logout/">logout?</a></p>
+              {% endif %}
             </div>
 
-            <p class="or-social">Or sign up  with</p>
-            <div class="socials">
-                  <a><img src="{% static 'images/Google.svg' %}" alt="Google" /></a>
-                  <a><img src="{% static 'images/Facebook.svg' %}" alt="Facebook" /></a>
-                  <a><img src="{% static 'images/Apple.svg' %}" alt="Apple" /></a>
-                  <a><img src="{% static 'images/Windows.svg' %}" alt="Windows" /></a>
-              </ul>
-
-            <p>Already have an account? <a href="/login">Sign in</a></p>
-
-            {% else %}
-            <p>Your're already logged in and cannot register. Would you like to <a href="/logout/">logout?</a></p>
-            {% endif %}
+          <div class="content">
+            <img src="{% static 'images/Login2.svg' %}" alt="image" />
           </div>
-
-        <div class="content">
-          <img src="{% static 'images/Login2.svg' %}" alt="image" />
         </div>
       </div>
-</div>
     </section>
+    <script>
+      var form_fields = document.getElementsByTagName('input')
+      form_fields[1].placeholder = 'Email';
+      form_fields[2].placeholder = 'Enter password';
+      form_fields[3].placeholder = 'Re-enter password';
+    </script>
   </body>
 </html>

@@ -37,14 +37,14 @@ def choose_template_for_questionnaire_view(request):
 def create_questionnaire_view(request):
     context = {}
     token = ""
-    username = request.user.username
+    email = request.user.email
     if request.method == "POST":
         url = request.META['HTTP_HOST']
         token = shortener().issue_token()
         title = request.POST.get("title")
         questionnaire = request.POST.get("questionnaire")
         questionnaire_obj = Questionnaire.objects.create(
-            author=username, title=title, questionnaire=questionnaire, short_link=token)
+            author=email, title=title, questionnaire=questionnaire, short_link=token)
         context['url'] = url
         context['token'] = token
         context['object'] = questionnaire_obj
