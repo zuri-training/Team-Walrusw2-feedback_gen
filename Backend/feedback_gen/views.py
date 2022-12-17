@@ -4,6 +4,7 @@ from django.template.loader import render_to_string
 from questionnaires.models import Questionnaire, Reply
 from questionnaires.shortener import shortener
 from django.shortcuts import render
+import csv
 
 
 def home_view(request):
@@ -84,3 +85,26 @@ def reply_survey_view(request, token):
 
     # django templates
     return render(request, 'reply-view.html', context=context)
+
+
+def export_to_csv(request):
+    surveys = Questionnaire.objects.all()
+    replies = Reply.objects.all()
+
+    response = HttpResponse('')
+    response['Content-Disposition'] = 'attachment; filename=survey_export.csv'
+    writer = csv.writer(response)
+    writer.writerow(['Title', 'Survey_question'])
+
+    writer_ = csv.writer(response)
+    writer_.writerow(['Replier', 'Reply'])
+
+    survey_fields = surveys.values_list('title', 'questionnaire')
+    reply_fields = replies.values_list('email', 'reply')
+
+    for survey in survey_fields:
+        writer.writerow(survey)
+        for reply in reply_fields:
+            writer_.writerow(reply)
+
+    return response
