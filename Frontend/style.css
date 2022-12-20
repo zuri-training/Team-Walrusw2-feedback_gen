@@ -488,7 +488,7 @@ height: 40px;
   text-align: top;
   margin-top: 0.5rem;
   margin-bottom: 0;
-  weight 7px;
+  font-weight: 7px;
 }
 
 .head6_5 {
@@ -534,7 +534,7 @@ height: 40px;
 .container3{
   width:100%;
   padding-right: 0.75rem;
-  padding-left: 0.75rem;.shadow
+  padding-left: 0.75rem; 
   margin-right:auto;
   margin-left:auto
 }
@@ -808,8 +808,8 @@ height: 40px;
 
 
 .row-13{
-  x: 1.5rem;
-  y: 0;
+  --x: 1.5rem;
+  --y: 0;
   display:flex;
   flex-wrap:wrap;
   margin-top:calc(-1*var(y));
