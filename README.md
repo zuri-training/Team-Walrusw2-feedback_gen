@@ -25,9 +25,9 @@ https://1drv.ms/p/s!AnfzqbVDP-PNg0ImAxqq1yVNle4M?e=9aYIjd
 ## Our Team
 Role And Responsibility of Members Our team is divided into three groups:
 
-Product Designers
-Frontend Developers
-Backend Developers
+- Product Designers
+- Frontend Developers
+- Backend Developers
 
 ## Technologies Used to Achieve this project 🛠️
 
