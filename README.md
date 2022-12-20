@@ -12,7 +12,8 @@ Are we making visitors feel safe on our site?.
 
 
 ## 🔗 Links
-Live Site URL; https://teamwalrusw2.pythonanywhere.com/
+Github hosted page URL:  https://zuri-training.github.io/Team-Walrusw2-feedback_gen/
+Live Site URL: https://teamwalrusw2.pythonanywhere.com/
 
 ## Documentation
 
