@@ -1185,10 +1185,6 @@ pt-3{
 
 
 
-/* ABOUT US SECTION */
-
-
-
 body{
   height:100vh;
   margin :auto;
@@ -1198,60 +1194,12 @@ body{
 }
 .about{
   display:flex;
-  /* padding: 0 10px; */
-  overflow-y: hidden;
 }
 .about img{
-  width:130px;
-  height:100px;
+  width:80px;
+  height:70px;
   align-items :center ;
   margin-top :10px auto;
-}
-.about .person1{
-  background:#4560EF ;
-
-}
-.about .person1:hover{
-  transform: scaleY(1.1);
-  box-shadow: 8px 8px 16px rgba(255, 196, 253, 0.4);
-border-radius: 8px;
-}
-
-
-.about .person2{
-  background: #8FFDFE;
-}
-.about .person2:hover{
-  transform: scaleY(1.1);
-  box-shadow: 8px 8px 16px rgba(255, 196, 253, 0.4);
-border-radius: 8px;
-}
-
-.about .person3{
-  background: #FFC4FE;
-}
-.about .person3:hover{
-  transform: scaleY(1.1);
-  box-shadow: 8px 8px 16px rgba(255, 196, 253, 0.4);
-border-radius: 8px;
-}
-
-.about .person4{
-  background: #FFDFAF;
-}
-.about .person4:hover{
-  transform: scaleY(1.1);
-  box-shadow: 8px 8px 16px rgba(255, 196, 253, 0.4);
-border-radius: 8px;
-}
-
-.about .person5{
-  background:#F8529E ;
-}
-.about .person5:hover{
-  transform: scaleY(1.1);
-  box-shadow: 8px 8px 16px rgba(255, 196, 253, 0.4);
-border-radius: 8px;
 }
 
 .about .person1, .about .person2, .about .person3, .about .person4, .about .person5{
@@ -1264,9 +1212,13 @@ border-radius: 8px;
   flex-direction :column ;
   align-items :center ;
   position :relative ;
+  background: #e1f3f3;
 }
+.about .person1:hover, .about .person2:hover, .about .person3:hover, .about .person4:hover, .about .person5:hover{
+  transform: scale(1.2);
+  }
 .about .btn{
-  background:#001A7D;
+  background:#3d4e4e;
   color:white;
   border-radius :5px ;
   cursor:pointer;
@@ -1285,6 +1237,9 @@ border-radius: 8px;
 .about .role, .about .name{
   font-size :14px;
 }
+
+
+
 /* footer */
 .footer{
   margin-top: 100px;
